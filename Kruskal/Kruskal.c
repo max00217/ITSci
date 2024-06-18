@@ -21,19 +21,19 @@ int find(int x) {
   if (parent[x] != x)
     parent[x] = find(parent[x]);
   return parent[x];
-}
+} // 경로 압축 기법
 
 void unionSet(int x, int y) {
   int xRoot = find(x);
   int yRoot = find(y);
   parent[xRoot] = yRoot;
-}
+} // 두 집합을 하나로 합침
 
 int cmpEdge(const void* a, const void* b) {
   Edge* edgeA = (Edge*)a;
   Edge* edgeB = (Edge*)b;
   return edgeA->weight - edgeB->weight;
-}
+} // qsort()를 위한 비교 함수
 
 int kruskal(Graph* g) {
   int totalWeight = 0;
